@@ -1,1 +1,566 @@
-About US
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardNova - Digital Business Card App</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.7);
+      z-index: 999;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      background:
+        radial-gradient(circle at top right, rgba(59,130,246,0.3), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(168,85,247,0.25), transparent 35%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.8);
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 28px;
+      border-radius: 14px;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(59,130,246,0.35);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero-phone {
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone {
+      width: 300px;
+      height: 620px;
+      border-radius: 40px;
+      background: linear-gradient(180deg, #111827, #1e293b);
+      border: 10px solid #111;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      padding: 24px;
+      position: relative;
+    }
+
+    .phone::before {
+      content: "";
+      width: 120px;
+      height: 26px;
+      background: #111;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+    }
+
+    .screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .screen-card {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 20px;
+    }
+
+    .screen-card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .screen-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: auto;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 28px;
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .feature-icon {
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 14px;
+      font-size: 22px;
+    }
+
+    .feature-card p {
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .price-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 30px;
+      padding: 40px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .price-card.featured {
+      border: 2px solid #8b5cf6;
+      transform: scale(1.02);
+    }
+
+    .price-card h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .price-card ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .price-card li {
+      margin-bottom: 14px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .cta {
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.25), transparent 30%),
+        rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 40px;
+      padding: 80px 40px;
+    }
+
+    .cta h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: auto;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 32px;
+    }
+
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 80px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    @media(max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .cta h2 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">CardNova</div>
+
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#download">Download</a>
+          <a href="#footer">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+        <h1>Digitize Business Cards in Seconds</h1>
+
+        <p>
+          Scan, organize, and share professional digital business cards directly from your iPhone with CardNova.
+        </p>
+
+        <div class="buttons">
+          <a href="#" class="btn btn-primary">Download on App Store</a>
+          <a href="#features" class="btn btn-secondary">Explore Features</a>
+        </div>
+      </div>
+
+      <div class="hero-phone">
+        <div class="phone">
+          <div class="screen">
+
+            <div class="screen-card">
+              <h3>Smart Scanner</h3>
+              <p>
+                AI-powered OCR instantly extracts names, emails, phone numbers, and addresses.
+              </p>
+            </div>
+
+            <div class="screen-card">
+              <h3>Your Digital Identity</h3>
+              <p>
+                Create modern QR-powered business cards and share them anywhere.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Powerful Features</h2>
+
+        <p>
+          Everything you need to modernize networking and eliminate paper business cards forever.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature-card">
+          <div class="feature-icon">📷</div>
+          <h3>Smart Scanner</h3>
+          <p>
+            Advanced OCR technology scans business cards with high speed and precision.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Contact Management</h3>
+          <p>
+            Organize your professional contacts without cluttering your personal phonebook.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Card Designer</h3>
+          <p>
+            Create personalized digital business cards with stylish templates and QR codes.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📁</div>
+          <h3>Folder Organization</h3>
+          <p>
+            Sort contacts by company, clients, family, leads, or any category you need.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>Easy Sharing</h3>
+          <p>
+            Instantly share your professional identity via QR code or digital contact files.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Offline & Secure</h3>
+          <p>
+            Your contact database stays private and accessible even without internet access.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Free & Premium</h2>
+
+        <p>
+          Start free and upgrade anytime for unlimited professional networking power.
+        </p>
+      </div>
+
+      <div class="pricing">
+
+        <div class="price-card">
+          <h3>Free</h3>
+
+          <ul>
+            <li>✓ 10 free business card scans</li>
+            <li>✓ Standard templates</li>
+            <li>✓ 1 digital business card</li>
+            <li>✓ Folder organization</li>
+            <li>✓ Secure local storage</li>
+          </ul>
+        </div>
+
+        <div class="price-card featured">
+          <h3>Premium</h3>
+
+          <ul>
+            <li>✓ Unlimited card scanning</li>
+            <li>✓ Full premium templates</li>
+            <li>✓ Multiple digital cards</li>
+            <li>✓ Ad-free experience</li>
+            <li>✓ Professional networking tools</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="container">
+
+      <div class="cta">
+        <h2>Upgrade Your Networking Experience</h2>
+
+        <p>
+          Download CardNova today and transform the way you scan, manage, and share business cards.
+        </p>
+
+        <a href="#" class="btn btn-primary">
+          Download on App Store
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <h3 style="margin-bottom: 12px;">CardNova</h3>
+
+          <p style="max-width: 420px; color: rgba(255,255,255,0.7);">
+            Smart digital business card management for modern professionals.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="https://cardnovax.github.io/cardnova/privacy-policy/" target="_blank">
+            Privacy Policy
+          </a>
+
+          <a href="https://cardnovax.github.io/cardnova/terms/" target="_blank">
+            Terms
+          </a>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 40px; color: rgba(255,255,255,0.5); font-size: 14px;">
+        © 2026 CardNova. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
